@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'rails_12factor', group: :production
-
+gem "omniauth-twitter"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
