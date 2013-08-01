@@ -13,6 +13,15 @@
 		<th>Items:</th>
 		<td><%= @order.order_items.count %></td>
 	</tr>
+	<%= form_for @order do |f| %>
+	<tr>
+		<th>Shipping To:</th>
+		<td>
+			<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %><br/>
+			<%= link_to "New Address", new_address_path %>
+		</td>
+	</tr>
+	<% end %>
 	<tr>
 		<th>Items</th>
 		<th>Title</th>
@@ -21,8 +30,7 @@
 		<th>Unit Price</th>
 		<th>Subtotal</th>
 		<th>Order Total</th>
-		<th><%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
-</th>
+		<th><%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %></th>
 	</tr>
 	<% @order.order_items.each do |item| %>
 	<tr>
@@ -38,3 +46,4 @@
 	</tr>
 	<% end %>
 </table>
+<%= render 'form' %>

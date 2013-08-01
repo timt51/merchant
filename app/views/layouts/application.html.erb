@@ -12,7 +12,11 @@
 		<span>Welcome, <%= current_user.name %></span>
 		<%= link_to "logout", logout_path, id: "login" %>
 		<% else %>
-		<%= link_to "login", login_path, id: "logout" %>
+			Login Using: 
+			<%= link_to image_tag("twitter_32.png"), login_path, id: "logout" %>
+			<%= link_to image_tag("facebook_32.png") %>
+			<%= link_to image_tag("google_32.png") %>
+			<%= link_to image_tag("github_32.png") %>
 		<% end %>
 	</div>
 	<div class="wrapper">

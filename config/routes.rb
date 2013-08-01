@@ -1,7 +1,12 @@
 Merchant::Application.routes.draw do
-  root to: "products#index"
-  resources :orders
+  resources :addresses
 
+  root to: "products#index"
+  resources :orders do
+    member do
+      get :confirm
+    end
+  end
   resources :order_items
 
   resources :products
